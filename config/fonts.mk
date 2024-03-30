@@ -2,6 +2,11 @@
 PRODUCT_PACKAGES += \
     ArbutusSlab-Regular.ttf
 
+# pingyin family
+PRODUCT_PACKAGES += \
+    FangZhengKaiTiPinYin.ttc \
+    SanJiJiHeiPinYinRegular.ttf
+
 # google-sans family
 PRODUCT_PACKAGES += \
     GoogleSans-Italic.ttf \
@@ -102,10 +107,12 @@ PRODUCT_PACKAGES += \
     FontStoropiaSourceOverlay \
     FontSurferSourceOverlay \
     FontUbuntuSourceOverlay \
-	 FontOppoSansOverlay \
+	FontOppoSansOverlay \
     FontNothiingDotOverlay\
     FontNothingDotHeadlineOverlay \
-    FontProductSansVHOverlay 
+    FontProductSansVHOverlay \
+    FontFangZhengKaiTiPinYinSourceOverlay \
+    FontSanJiJiHeiPinYinRegularSourceOverlay
 	
 # Lockscreen clock fonts 
 PRODUCT_PACKAGES += \
