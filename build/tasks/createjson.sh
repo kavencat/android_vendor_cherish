@@ -31,11 +31,16 @@ if [ -f $existingOTAjson ]; then
 	oem=`grep -n "\"oem\"" $existingOTAjson | cut -d ":" -f 3 | sed 's/"//g' | sed 's/,//g' | xargs`
 	device=`grep -n "\"device\"" $existingOTAjson | cut -d ":" -f 3 | sed 's/"//g' | sed 's/,//g' | xargs`
 	filename=$3
+	date=$(echo $filename | cut -d "-" -f 4)
+	time=$(echo $filename | cut -d "-" -f 5)
+	year=${date:0:4}
+	month=${date:4:2}
+	day=${date:6:2}
 	version=`echo "$4" | cut -d'-' -f5`
 	v_max=`echo "$version" | cut -d'.' -f1 | cut -d'v' -f2`
 	v_min=`echo "$version" | cut -d'.' -f2`
 	version="$4"
-	download="https://sourceforge.net/projects/cherish-os/files/device/$1/$filename/download"
+	download="https://sourceforge.net/projects/wayney/files/CherishOS/$year-$month-$day/$filename/download"
 	buildprop=$2/system/build.prop
 	linenr=`grep -n "ro.system.build.date.utc" $buildprop | cut -d':' -f1`
 	timestamp=`sed -n $linenr'p' < $buildprop | cut -d'=' -f2`
@@ -103,7 +108,7 @@ if [ -f $existingOTAjson ]; then
 			"version": '$version',
 			"buildtype": "'$buildtype'",
 			"forum": "'$forum'",
-                        "gapps": "'$gapps'",
+			"gapps": "'$gapps'",
 			"firmware": "'$firmware'",
 			"modem": "'$modem'",
 			"bootloader": "'$bootloader'",
